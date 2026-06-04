@@ -12,6 +12,7 @@ def create_navbar() -> html.Nav:
         ("Accueil",      "/"),
         ("Histogramme",  "/histogramme"),
         ("Carte",        "/carte"),
+        ("Analyses",  "/analyses"),
         ("À propos",     "/about"),
     ]
     return html.Nav(
