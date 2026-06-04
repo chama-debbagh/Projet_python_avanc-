@@ -627,5 +627,5 @@ def update_heatmap(region: str) -> go.Figure:
         xaxis=dict(side="bottom"),
     )
     return fig
-PYEOF
-echo "analyses.py OK"
+#PYEOF
+#echo "analyses.py OK"
