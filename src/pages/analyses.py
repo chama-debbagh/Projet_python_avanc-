@@ -22,14 +22,14 @@ from src.utils.common_functions import (
     load_clean_data,
     get_region_options,
     filter_by_region,
-    #TRANCHE_ORDER,
+    TRANCHE_ORDER,
     tranche_population,
 )
 
-#  Palette de couleurs cohérente 
+# ── Palette de couleurs cohérente ─────────────────────────────────────────────
 PALETTE = px.colors.qualitative.Set2
 
-#  Style de la barre de filtres 
+# ── Style de la barre de filtres ──────────────────────────────────────────────
 FILTER_STYLE = {
     "display": "flex", "gap": "28px", "flexWrap": "wrap",
     "alignItems": "flex-start", "marginBottom": "20px",
@@ -37,7 +37,7 @@ FILTER_STYLE = {
     "borderRadius": "8px", "border": "1px solid #dde3ed",
 }
 
-#  Layout principal 
+# ── Layout principal ──────────────────────────────────────────────────────────
 
 def layout() -> html.Div:
     """Retourne la page Analyses complète avec 7 onglets."""
@@ -48,13 +48,13 @@ def layout() -> html.Div:
         id="analyses-tabs",
         value="barplot",
         children=[
-            dcc.Tab(label="Barplot",    value="barplot"),
-            dcc.Tab(label="Boxplot",    value="boxplot"),
-            dcc.Tab(label="Scatter",    value="scatter"),
-            dcc.Tab(label="Top / Flop", value="topflop"),
-            dcc.Tab(label="Population", value="population"),
-            dcc.Tab(label="Pie chart",  value="pie"),
-            dcc.Tab(label="Heatmap",    value="heatmap"),
+            dcc.Tab(label="📊 Barplot",    value="barplot"),
+            dcc.Tab(label="📦 Boxplot",    value="boxplot"),
+            dcc.Tab(label="🔵 Scatter",    value="scatter"),
+            dcc.Tab(label="🏆 Top / Flop", value="topflop"),
+            dcc.Tab(label="👥 Population", value="population"),
+            dcc.Tab(label="🥧 Pie chart",  value="pie"),
+            dcc.Tab(label="🔥 Heatmap",    value="heatmap"),
         ],
         style={"marginBottom": "0"},
         colors={"border": "#dde3ed", "primary": "#2980b9", "background": "#f7f9fc"},
@@ -72,7 +72,7 @@ def layout() -> html.Div:
     ], style={"padding": "24px 32px"})
 
 
-# Callback principal : rendu du contenu selon l'onglet 
+# ── Callback principal : rendu du contenu selon l'onglet ─────────────────────
 
 @callback(
     Output("analyses-content", "children"),
@@ -83,6 +83,7 @@ def render_tab(tab: str) -> html.Div:
     Sélectionne et retourne le sous-layout de l'onglet actif.
 
     Parameters
+    ----------
     tab : str  Valeur de l'onglet sélectionné
     """
     renderers = {
@@ -97,9 +98,9 @@ def render_tab(tab: str) -> html.Div:
     return renderers[tab]()
 
 
-
-# ONGLET 1 : BARPLOT : RFR moyen par région
-
+# ══════════════════════════════════════════════════════════════════════════════
+# ONGLET 1 – BARPLOT : RFR moyen par région
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _tab_barplot() -> html.Div:
     return html.Div([
@@ -142,6 +143,7 @@ def update_barplot(variable: str, sort: str) -> go.Figure:
     Barplot horizontal du RFR médian (ou autre variable) par région.
 
     Parameters
+    ----------
     variable : str  Colonne à agréger
     sort     : str  « asc » ou « desc »
     """
@@ -182,7 +184,9 @@ def update_barplot(variable: str, sort: str) -> go.Figure:
     return fig
 
 
-# ONGLET 2 : BOXPLOT : distribution du RFR par région
+# ══════════════════════════════════════════════════════════════════════════════
+# ONGLET 2 – BOXPLOT : distribution du RFR par région
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _tab_boxplot() -> html.Div:
     return html.Div([
@@ -248,7 +252,9 @@ def update_boxplot(variable: str, scale: str) -> go.Figure:
     return fig
 
 
-# ONGLET 3 : SCATTER : RFR vs taux d'imposition
+# ══════════════════════════════════════════════════════════════════════════════
+# ONGLET 3 – SCATTER : RFR vs taux d'imposition
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _tab_scatter() -> html.Div:
     df = load_clean_data()
@@ -329,7 +335,9 @@ def update_scatter(region: str, size_mode: str) -> tuple:
     return fig, sample_info
 
 
-# ONGLET 4 : TOP / FLOP 10
+# ══════════════════════════════════════════════════════════════════════════════
+# ONGLET 4 – TOP / FLOP 10
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _tab_topflop() -> html.Div:
     df = load_clean_data()
@@ -404,7 +412,9 @@ def update_topflop(region: str, variable: str, n: int) -> go.Figure:
     return fig
 
 
-# ONGLET 5 : POPULATION : RFR par tranche de population
+# ══════════════════════════════════════════════════════════════════════════════
+# ONGLET 5 – POPULATION : RFR par tranche de population
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _tab_population() -> html.Div:
     df = load_clean_data()
@@ -480,8 +490,9 @@ def update_population(region: str, chart_type: str) -> go.Figure:
     return fig
 
 
-# ONGLET 6 : PIE : répartition des foyers par région
-
+# ══════════════════════════════════════════════════════════════════════════════
+# ONGLET 6 – PIE : répartition des foyers par région
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _tab_pie() -> html.Div:
     return html.Div([
@@ -547,7 +558,10 @@ def update_pie(variable: str, pie_type: str) -> go.Figure:
     )
     return fig
 
-# ONGLET 7 : HEATMAP : corrélations entre variables numériques
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ONGLET 7 – HEATMAP : corrélations entre variables numériques
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _tab_heatmap() -> html.Div:
     df = load_clean_data()
@@ -613,8 +627,5 @@ def update_heatmap(region: str) -> go.Figure:
         xaxis=dict(side="bottom"),
     )
     return fig
-#PYEOF
-#echo "analyses.py OK"
-#Sortie
-
-#analyses.py OK
+PYEOF
+echo "analyses.py OK"
