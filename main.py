@@ -28,7 +28,7 @@ from src.components.footer import create_footer
 from src.components.navbar import create_navbar
 
 # Import des pages (enregistre aussi leurs callbacks dans le registre global Dash)
-from src.pages import home, histogramme, carte, about
+from src.pages import home, histogramme, carte, about, analyses
 
 # 1. Pipeline de données 
 
