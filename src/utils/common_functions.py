@@ -43,7 +43,6 @@ def get_region_options(df: pd.DataFrame) -> list[dict]:
         DataFrame chargé depuis load_clean_data().
 
     Returns
-    -------
     list[dict]
         Liste [{"label": ..., "value": ...}] pour dcc.Dropdown.
     """
@@ -58,13 +57,11 @@ def filter_by_region(df: pd.DataFrame, region: str) -> pd.DataFrame:
     Filtre le DataFrame par région.
 
     Parameters
-    ----------
     df : pd.DataFrame
     region : str
         Nom de région ou « Toutes » pour ne pas filtrer.
 
-    Returns
-    -------
+    Returns=
     pd.DataFrame
     """
     if region and region != "Toutes":

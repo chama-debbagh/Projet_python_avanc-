@@ -106,13 +106,11 @@ def update_histogramme(region: str, n_bins: int, scale: str):
     Reconstruit l'histogramme selon les filtres sélectionnés.
 
     Parameters
-    ----------
     region : str  Région ou « Toutes »
     n_bins : int  Nombre de classes
     scale  : str  « linear » ou « log »
 
     Returns
-    -------
     tuple[go.Figure, html.Div]
     """
     df = filter_by_region(load_clean_data(), region)

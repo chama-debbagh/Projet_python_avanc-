@@ -69,12 +69,12 @@ def _load_revenus(path: Path) -> pd.DataFrame:
     )
     df["code_insee"] = df["dep"] + df["commune"]
 
-    # ── Conversion numérique (valeurs "n.c." → NaN) ───────────────────────────
+    #  Conversion numérique (valeurs "n.c." → NaN) 
     num_cols = ["nb_foyers", "rfr_total_k", "impot_net_k", "nb_foyers_imposes"]
     for col in num_cols:
         df[col] = pd.to_numeric(df[col], errors="coerce")
 
-    # ── Métriques dérivées ────────────────────────────────────────────────────
+    #  Métriques dérivées 
     # Revenu fiscal de référence moyen par foyer, en euros
     df["rfr_moyen"] = (df["rfr_total_k"] * 1000) / df["nb_foyers"]
 
@@ -100,12 +100,11 @@ def _load_communes(path: Path) -> pd.DataFrame:
     Charge le référentiel géographique des communes (coordonnées, région, population).
 
     Parameters
-    ----------
     path : Path
         Chemin vers communes-france-2025.csv
 
     Returns
-    -------
+    
     pd.DataFrame
         Sous-ensemble utile avec code_insee comme clé de jointure.
     """
