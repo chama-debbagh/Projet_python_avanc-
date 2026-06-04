@@ -18,7 +18,6 @@ def load_clean_data() -> pd.DataFrame:
     Déclenche le nettoyage automatiquement si le fichier est absent.
 
     Returns
-    -------
     pd.DataFrame
         Données prêtes pour les visualisations (34 000+ communes).
     """
