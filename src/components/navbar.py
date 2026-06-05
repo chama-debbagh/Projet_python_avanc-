@@ -7,10 +7,10 @@ from dash import html, dcc
 
 
 def create_navbar() -> html.Nav:
-    """Retourne la barre de navigation horizontale."""
     pages = [
         ("Accueil",      "/"),
         ("Histogramme",  "/histogramme"),
+        ("Analyses",     "/analyses"),
         ("Carte",        "/carte"),
         ("Analyses",  "/analyses"),
         ("À propos",     "/about"),

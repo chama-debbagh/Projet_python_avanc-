@@ -13,7 +13,6 @@ Usage :
 
 import sys
 from pathlib import Path
-# Ajouter la racine du projet au PYTHONPATH pour tous les imports internes
 sys.path.insert(0, str(Path(__file__).parent))
 
 import dash
@@ -28,7 +27,7 @@ from src.components.footer import create_footer
 from src.components.navbar import create_navbar
 
 # Import des pages (enregistre aussi leurs callbacks dans le registre global Dash)
-from src.pages import home, histogramme, carte, about, analyses
+from src.pages import home, histogramme, analyses, carte, about
 
 # 1. Pipeline de données 
 
@@ -75,6 +74,7 @@ app.layout = html.Div(
 _ROUTES = {
     "/":            home.layout,
     "/histogramme": histogramme.layout,
+    "/analyses":    analyses.layout,
     "/carte":       carte.layout,
     "/about":       about.layout,
 }
