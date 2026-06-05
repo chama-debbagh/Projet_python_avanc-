@@ -60,9 +60,28 @@ def filter_by_region(df: pd.DataFrame, region: str) -> pd.DataFrame:
     region : str
         Nom de région ou « Toutes » pour ne pas filtrer.
 
-    Returns=
+    Returns
+    
     pd.DataFrame
     """
     if region and region != "Toutes":
         return df[df["reg_nom"] == region].copy()
     return df.copy()
+
+def tranche_population(pop) -> str:
+    """Classe une commune selon sa population."""
+    if pd.isna(pop):  return "Inconnue"
+    if pop < 500:     return "< 500 hab."
+    if pop < 2000:    return "500–2 000"
+    if pop < 10000:   return "2 000–10 000"
+    if pop < 50000:   return "10 000–50 000"
+    return "> 50 000 hab."
+
+TRANCHE_ORDER = [
+    "< 500 hab.",
+    "500–2 000",
+    "2 000–10 000",
+    "10 000–50 000",
+    "> 50 000 hab.",
+    "Inconnue",
+]
