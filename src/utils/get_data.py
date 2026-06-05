@@ -17,7 +17,6 @@ def check_raw_files() -> bool:
     Vérifie que les deux fichiers bruts nécessaires sont présents.
 
     Returns
-    -------
     bool
         True si tous les fichiers sont présents.
     """
