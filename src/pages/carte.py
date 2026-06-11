@@ -93,7 +93,7 @@ def update_carte(region: str, variable: str):
     """
     df     = filter_by_region(load_clean_data(), region)
     meta   = _VARIABLES[variable]
-    titre  = f"{meta['label']} – {'France entière' if region == 'Toutes' else region}"
+    titre  = f"{meta['label']} - {'France entière' if region == 'Toutes' else region}"
 
     #  Normalisation de la taille des points 
     # nb_foyers varie de 11 à 240 000 : on utilise la racine carrée pour atténuer
