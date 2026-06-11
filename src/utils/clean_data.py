@@ -44,12 +44,9 @@ def _load_revenus(path: Path) -> pd.DataFrame:
     Charge le fichier IRCOM, filtre les lignes « Total » et calcule les métriques.
 
     Parameters
-    ----------
     path : Path
         Chemin vers ircom-communes-revenus-2002.xlsx
-
     Returns
-    -------
     pd.DataFrame
         Une ligne par commune avec code_insee, rfr_moyen, taux_imposition…
     """
@@ -60,7 +57,7 @@ def _load_revenus(path: Path) -> pd.DataFrame:
     # Ne garder que la ligne agrégée "Total" (une par commune)
     df = df[df["tranche"].astype(str).str.strip() == "Total"].copy()
 
-    # ── Reconstruction du code INSEE ──────────────────────────────────────────
+    #  Reconstruction du code INSEE 
     # Dans l'XLSX, le département est encodé "010 " (3 chiffres + espace)
     # Le code INSEE officiel utilise 2 chiffres : "01"
     df["dep"]      = df["dep_raw"].astype(str).str.strip().str[:2]
@@ -98,13 +95,10 @@ def _load_revenus(path: Path) -> pd.DataFrame:
 def _load_communes(path: Path) -> pd.DataFrame:
     """
     Charge le référentiel géographique des communes (coordonnées, région, population).
-
     Parameters
     path : Path
         Chemin vers communes-france-2025.csv
-
     Returns
-    
     pd.DataFrame
         Sous-ensemble utile avec code_insee comme clé de jointure.
     """
@@ -132,7 +126,6 @@ def merge_and_save() -> pd.DataFrame:
     Fusionne les données IRCOM avec le référentiel communes, puis sauvegarde.
 
     Returns
-    -------
     pd.DataFrame
         DataFrame final prêt pour le dashboard (34 000+ communes).
     """
