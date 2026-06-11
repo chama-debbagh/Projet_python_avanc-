@@ -1,7 +1,9 @@
 """
 config.py
+configuration
 Paramètres globaux : chemins de fichiers, constantes du dashboard.
 Modifier uniquement ce fichier pour adapter les chemins à une autre machine.
+
 """
 
 from pathlib import Path
@@ -17,6 +19,7 @@ RAW_COMMUNES = DATA_RAW_DIR / "communes-france-2025.csv"
 
 #Fichier nettoyé
 CLEAN_DATA = DATA_CLEANED_DIR / "revenus_communes.csv"
+
 
 #Dashboard
 APP_TITLE = "Inégalités de revenus par commune en France (2002)"

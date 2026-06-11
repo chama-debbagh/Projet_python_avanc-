@@ -50,7 +50,7 @@ def _load_revenus(path: Path) -> pd.DataFrame:
     pd.DataFrame
         Une ligne par commune avec code_insee, rfr_moyen, taux_imposition…
     """
-    # Sauter les 5 premières lignes de méta-données DGFiP
+
     df = pd.read_excel(path, header=None, skiprows=5)
     df = df.rename(columns=_COLS)
 

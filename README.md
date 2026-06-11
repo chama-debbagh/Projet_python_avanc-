@@ -11,27 +11,6 @@ fiscaux de référence des communes françaises, à partir des données publique
 - Python 3.11 ou supérieur
 - pip
 
-### Installation
-
-```bash
-git clone <adresse_du_depot>
-cd data_project
-python -m venv .venv
-# Linux/macOS :
-source .venv/bin/activate
-# Windows :
-.venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### Lancement
-
-```bash
-python main.py
-```
-
-Ouvrir [http://127.0.0.1:8050](http://127.0.0.1:8050) dans un navigateur.
-
 Le dashboard génère automatiquement les données nettoyées au premier lancement.
 
 ### Pages disponibles
@@ -56,9 +35,6 @@ Le dashboard génère automatiquement les données nettoyées au premier lanceme
 La jointure est faite sur le **code INSEE** à 5 caractères (2 chiffres département + 3 chiffres commune).
 
 ---
-
-## Developer Guide
-
 ### Architecture du code
 
 ```mermaid
