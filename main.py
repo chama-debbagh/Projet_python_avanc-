@@ -84,11 +84,9 @@ _ROUTES = {
 def display_page(pathname: str):
     """
     Sélectionne le layout à afficher selon l'URL courante.
-
     Parameters
     pathname : str
         Chemin de l'URL (ex : « /histogramme »).
-
     Returns
     dash component
         Le layout de la page correspondante, ou la page d'accueil par défaut.
