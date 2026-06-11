@@ -28,7 +28,7 @@ _COLS = {
     2:  "libelle",
     3:  "tranche",
     4:  "nb_foyers",
-    5:  "rfr_total_k",       # en milliers d'euros
+    5:  "rfr_total_k",      
     6:  "impot_net_k",
     7:  "nb_foyers_imposes",
     8:  "rfr_imposes_k",
