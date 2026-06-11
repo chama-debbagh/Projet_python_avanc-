@@ -95,13 +95,3 @@ flowchart TD
 
 ---
 
-## Copyright
-
-Je déclare sur l'honneur que le code fourni a été produit par moi-même,
-à l'exception des lignes ci-dessous :
-
-| Lignes | Source | Explication |
-|---|---|---|
-| — | — | — |
-
-Toute ligne non déclarée ci-dessus est réputée être produite par l'auteur du projet.
