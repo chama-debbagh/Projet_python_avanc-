@@ -37,7 +37,6 @@ def get_region_options(df: pd.DataFrame) -> list[dict]:
     Construit la liste d'options pour le Dropdown de sélection de région.
 
     Parameters
-    ----------
     df : pd.DataFrame
         DataFrame chargé depuis load_clean_data().
 
