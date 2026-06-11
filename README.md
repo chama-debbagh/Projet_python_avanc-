@@ -60,21 +60,6 @@ flowchart TD
     K --> O
 ```
 
-### Ajouter une page
-
-1. Créer `src/pages/ma_page.py` avec une fonction `layout() -> html.Div`.
-2. L'importer dans `main.py` : `from src.pages import ma_page`
-3. Ajouter l'entrée dans `_ROUTES` dans `main.py`.
-4. Ajouter le lien dans `src/components/navbar.py`.
-
-### Ajouter un graphique à une page existante
-
-1. Créer (ou modifier) un composant dans `src/components/`.
-2. Insérer le composant dans le `layout()` de la page.
-3. Déclarer le `@callback` dans le même fichier avec des IDs uniques.
-
----
-
 ## Rapport d'analyse
 
 ### Conclusions principales
@@ -85,3 +70,4 @@ flowchart TD
 - **Médiane nationale** : ~13 650 € par foyer fiscal, significativement inférieure à la moyenne (~15 800 €), ce qui confirme l'asymétrie de la distribution.
 
 ---
+

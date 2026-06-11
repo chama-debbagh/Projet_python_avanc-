@@ -52,7 +52,7 @@ def prepare_data() -> None:
 
 app = dash.Dash(
     __name__,
-    suppress_callback_exceptions=True,   # nécessaire pour les composants multi-pages
+    suppress_callback_exceptions=True, 
     title=config.APP_TITLE,
     meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
 )
@@ -84,11 +84,9 @@ _ROUTES = {
 def display_page(pathname: str):
     """
     Sélectionne le layout à afficher selon l'URL courante.
-
     Parameters
     pathname : str
         Chemin de l'URL (ex : « /histogramme »).
-
     Returns
     dash component
         Le layout de la page correspondante, ou la page d'accueil par défaut.

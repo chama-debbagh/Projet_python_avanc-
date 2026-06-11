@@ -28,7 +28,7 @@ _COLS = {
     2:  "libelle",
     3:  "tranche",
     4:  "nb_foyers",
-    5:  "rfr_total_k",       # en milliers d'euros
+    5:  "rfr_total_k",      
     6:  "impot_net_k",
     7:  "nb_foyers_imposes",
     8:  "rfr_imposes_k",
@@ -44,12 +44,9 @@ def _load_revenus(path: Path) -> pd.DataFrame:
     Charge le fichier IRCOM, filtre les lignes « Total » et calcule les métriques.
 
     Parameters
-    ----------
     path : Path
         Chemin vers ircom-communes-revenus-2002.xlsx
-
     Returns
-    -------
     pd.DataFrame
         Une ligne par commune avec code_insee, rfr_moyen, taux_imposition…
     """
@@ -102,7 +99,6 @@ def _load_communes(path: Path) -> pd.DataFrame:
     path : Path
         Chemin vers communes-france-2025.csv
     Returns
-    
     pd.DataFrame
         Sous-ensemble utile avec code_insee comme clé de jointure.
     """

@@ -1,7 +1,6 @@
 """
 carte.py
 Page avec la carte géolocalisée des communes françaises (scatter map).
-
 Fonctionnalités :
 - Filtre par région
 - Choix de la variable à colorier (RFR moyen, taux imposition, population)
