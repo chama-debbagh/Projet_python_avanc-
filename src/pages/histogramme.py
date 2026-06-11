@@ -117,7 +117,7 @@ def update_histogramme(region: str, n_bins: int, scale: str):
 
     mediane = df["rfr_moyen"].median()
     moyenne = df["rfr_moyen"].mean()
-    titre   = f"RFR moyen – {'France entière' if region == 'Toutes' else region}"
+    titre   = f"RFR moyen - {'France entière' if region == 'Toutes' else region}"
 
     #  Construction de l'histogramme 
     fig = go.Figure()
