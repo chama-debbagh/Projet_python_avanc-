@@ -15,7 +15,7 @@ def layout() -> html.Div:
         html.Div([
             html.H3("Contexte"),
             html.P(
-                "Ce dashboard a été réalisé dans le cadre du mini-projet Data à l'ESIEE Paris. "
+                "Ce dashboard a été réalisé dans le cadre du projet Data en Python à l'ESIEE Paris. "
                 "Il explore les inégalités de revenus fiscaux des communes françaises en 2002 "
                 "à partir des données publiques en libre accès sur data.gouv.fr."
             ),

@@ -1,15 +1,15 @@
 """
 analyses.py
-Page "Analyses" – 7 onglets de visualisations avancées.
+Page "Analyses" - 7 onglets de visualisations avancées.
 
 Onglets :
-  1. Barplot    – RFR médian par région
-  2. Boxplot    – Distribution du RFR par région
-  3. Scatter    – RFR vs taux d'imposition
-  4. Top / Flop – Top N / Flop N communes
-  5. Population – RFR par tranche de population
-  6. Pie        – Répartition des foyers par région
-  7. Heatmap    – Matrice de corrélation
+  1. Barplot    - RFR médian par région
+  2. Boxplot    - Distribution du RFR par région
+  3. Scatter    - RFR vs taux d'imposition
+  4. Top / Flop - Top N / Flop N communes
+  5. Population - RFR par tranche de population
+  6. Pie        - Répartition des foyers par région
+  7. Heatmap    - Matrice de corrélation
 """
 
 import numpy as np
@@ -88,7 +88,7 @@ def render_tab(tab: str) -> html.Div:
 
 
 
-# ONGLET 1 – BARPLOT
+# ONGLET 1 - BARPLOT
 def _tab_barplot() -> html.Div:
     return html.Div([
         html.H3("RFR médian par région"),
@@ -171,7 +171,7 @@ def update_barplot(variable: str, sort: str) -> go.Figure:
 
 
 
-# ONGLET 2 – BOXPLOT
+# ONGLET 2 - BOXPLOT
 
 
 def _tab_boxplot() -> html.Div:
@@ -234,7 +234,7 @@ def update_boxplot(variable: str, scale: str) -> go.Figure:
         color_discrete_sequence=PALETTE,
         points=False,   # 34 000 points = trop lourd
         labels={variable: "Valeur", "reg_nom": "Région"},
-        title=f"Distribution – {'RFR moyen' if variable == 'rfr_moyen' else 'Taux d imposition'} par région",
+        title=f"Distribution - {'RFR moyen' if variable == 'rfr_moyen' else 'Taux d imposition'} par région",
     )
     fig.update_layout(
         showlegend=False,
@@ -669,7 +669,7 @@ def update_heatmap(region: str) -> go.Figure:
         colorbar=dict(title="r de Pearson", thickness=14),
     ))
     fig.update_layout(
-        title=f"Corrélations – {'France entière' if region == 'Toutes' else region}",
+        title=f"Corrélations - {'France entière' if region == 'Toutes' else region}",
         paper_bgcolor="white", plot_bgcolor="white",
         margin={"t": 60, "b": 80, "l": 110, "r": 20},
         height=520,
