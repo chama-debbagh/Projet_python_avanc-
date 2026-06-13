@@ -1,6 +1,7 @@
 """
 navbar.py
 Barre de navigation entre les pages du dashboard.
+
 """
 
 from dash import html, dcc
@@ -12,7 +13,6 @@ def create_navbar() -> html.Nav:
         ("Histogramme",  "/histogramme"),
         ("Analyses",     "/analyses"),
         ("Carte",        "/carte"),
-      #  ("Analyses",  "/analyses"),
         ("À propos",     "/about"),
     ]
     return html.Nav(
