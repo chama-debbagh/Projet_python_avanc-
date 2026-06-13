@@ -82,7 +82,6 @@ def layout() -> html.Div:
 def update_carte(region: str, variable: str):
     """
     Reconstruit la carte selon la région et la variable sélectionnées.
-
     Parameters
     region   : str  Région ou « Toutes »
     variable : str  Clé dans _VARIABLES
@@ -95,7 +94,7 @@ def update_carte(region: str, variable: str):
     titre  = f"{meta['label']} - {'France entière' if region == 'Toutes' else region}"
 
     #  Normalisation de la taille des points 
-    # nb_foyers varie de 11 à 240 000 : on utilise la racine carrée pour atténuer
+    # nombre de foyers varie de 11 à 240 000 donc on utilise la racine carrée pour atténuer
     df = df.copy()
     df["_size"] = np.sqrt(df["nb_foyers"].clip(lower=1))
     # Clamp pour éviter les points trop gros ou trop petits
