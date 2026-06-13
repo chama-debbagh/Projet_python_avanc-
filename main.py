@@ -1,7 +1,6 @@
 """
 main.py
 Point d'entrée du dashboard.
-
 Étapes au démarrage :
 1. Vérification des fichiers bruts dans data/raw/
 2. Génération de data/cleaned/revenus_communes.csv si absent
@@ -29,11 +28,12 @@ from src.components.navbar import create_navbar
 # Import des pages (enregistre aussi leurs callbacks dans le registre global Dash)
 from src.pages import home, histogramme, analyses, carte, about
 
-# 1. Pipeline de données 
+# 1 Pipeline de données 
 
 def prepare_data() -> None:
     """
     Prépare les données nettoyées si elles ne sont pas encore générées.
+
     Arrête l'exécution si les fichiers bruts sont manquants.
     """
     print("\n Vérification des données ")
@@ -48,7 +48,7 @@ def prepare_data() -> None:
         print(f"  [OK] Données nettoyées trouvées : {config.CLEAN_DATA.name}")
 
 
-#2. Application Dash
+#2 Application Dash
 
 app = dash.Dash(
     __name__,
@@ -69,7 +69,7 @@ app.layout = html.Div(
 )
 
 
-#3. Routage
+#3 Routage
 
 _ROUTES = {
     "/":            home.layout,
@@ -89,6 +89,7 @@ def display_page(pathname: str):
         Chemin de l'URL (ex : « /histogramme »).
     Returns
     dash component
+    
         Le layout de la page correspondante, ou la page d'accueil par défaut.
     """
     page_fn = _ROUTES.get(pathname, home.layout)

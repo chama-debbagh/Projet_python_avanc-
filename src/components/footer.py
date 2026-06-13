@@ -1,6 +1,7 @@
 """
 footer.py
 Pied de page du dashboard.
+
 """
 
 from dash import html
